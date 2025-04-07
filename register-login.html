@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration Forms</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-footer a {
+            text-decoration: none;
+            color: #5cb85c;
+            font-weight: bold;
+        }
+
+        .form-footer a:hover {
+            color: #4cae4c;
+        }
+
+        .tabs {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tabs button {
+            background-color: #f4f4f9;
+            border: none;
+            font-size: 16px;
+            margin: 0 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .tabs button.active {
+            background-color: #5cb85c;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <!-- Tab navigation for Login and Register -->
+    <div class="tabs">
+        <button id="loginTab" class="active" onclick="showForm('login')">Login</button>
+        <button id="registerTab" onclick="showForm('register')">Register</button>
+    </div>
+
+    <!-- Login Form -->
+    <div id="loginForm">
+        <h2>Login</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="loginUsername">Username</label>
+                <input type="text" id="loginUsername" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+
+        <div class="form-footer">
+            <p>Don't have an account? <a href="#" onclick="showForm('register')">Sign up here</a></p>
+        </div>
+    </div>
+
+    <!-- Registration Form -->
+    <div id="registerForm" style="display: none;">
+        <h2>Register</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="registerName">Full Name</label>
+                <input type="text" id="registerName" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="registerEmail">Email</label>
+                <input type="email" id="registerEmail" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="registerUsername">Username</label>
+                <input type="text" id="registerUsername" name="username" placeholder="Choose a username" required>
+            </div>
+            <div class="form-group">
+                <label for="registerPassword">Password</label>
+                <input type="password" id="registerPassword" name="password" placeholder="Create a password" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+
+        <div class="form-footer">
+            <p>Already have an account? <a href="#" onclick="showForm('login')">Login here</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showForm(form) {
+        // Hide both forms initially
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('registerForm').style.display = 'none';
+
+        // Remove active class from both tabs
+        document.getElementById('loginTab').classList.remove('active');
+        document.getElementById('registerTab').classList.remove('active');
+
+        // Show the selected form
+        if (form === 'login') {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('loginTab').classList.add('active');
+        } else {
+            document.getElementById('registerForm').style.display = 'block';
+            document.getElementById('registerTab').classList.add('active');
+        }
+    }
+</script>
+
+</body>
+</html>

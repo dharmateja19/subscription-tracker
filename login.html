@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Here</title>
+</head>
+<body>
+    <form method="post" action="login.php">
+        <label><b>Email: </b><br></label>
+        <input type="email" name="email" placeholder="Enter your email-id" required><br>
+        
+        <label><b>Password: </b><br></label>
+        <input type="password" name="password" id="password" placeholder="Enter your password" required><br>
+        
+        <input type="checkbox" id="togglePassword"> Show Password<br><br>
+        <input type="submit" value="Log In">
+        
+        <p>New User? <a href="register.html">Register here</a></p>
+    </form>
+
+    <script>
+        document.getElementById("togglePassword").addEventListener("change", function () {
+            const passwordInput = document.getElementById("password");
+            passwordInput.type = this.checked ? "text" : "password";
+        });
+    </script>
+</body>
+</html>

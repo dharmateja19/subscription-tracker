@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Here</title>
+</head>
+<body>
+    <form id="registerForm" method="post" action="register.php">
+        <label><b>Name: </b><br></label>
+        <input type="text" name="name" id="name" placeholder="Enter your name" required><br>
+        
+        <label><b>Email: </b><br></label>
+        <input type="email" name="email" id="email" placeholder="Enter email address (user123@example.com)" required><br>
+        
+        <label><b>Mobile: </b><br></label>
+        <input type="text" name="mobile_no" id="mobile" placeholder="Enter your mobile number" required><br>
+        
+        <label><b>Password: </b><br></label>
+        <input type="password" name="password" id="password" placeholder="Set your password" required><br>
+        <input type="checkbox" id="togglePassword"> Show Password<br><br>
+        
+        <input type="submit" value="Register">
+        <p>Already User? <a href="login.html">login here</a></p>
+    </form>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(e) {
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const mobile = document.getElementById("mobile").value.trim();
+            const password = document.getElementById("password").value;
+
+            const nameRegex = /^[A-Za-z\s]{2,}$/;
+            const mobileRegex = /^[6-9]\d{9}$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,12}$/;
+
+            if (!nameRegex.test(name)) {
+                alert("Name should contain at least two characters and only letters and spaces are allowed.");
+                e.preventDefault();
+                return;
+            }
+
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                e.preventDefault();
+                return;
+            }
+
+            if (!mobileRegex.test(mobile)) {
+                alert("Mobile number must be 10 digits and start with 6-9.");
+                e.preventDefault();
+                return;
+            }
+
+            if (!passwordRegex.test(password)) {
+                alert("Password must be 8-12 characters and include:\n- One uppercase letter\n- One lowercase letter\n- One digit\n- One special character");
+                e.preventDefault();
+                return;
+            }
+        });
+
+        document.getElementById("togglePassword").addEventListener("change", function () {
+            const passwordInput = document.getElementById("password");
+            passwordInput.type = this.checked ? "text" : "password";
+        });
+    </script>
+</body>
+</html>
