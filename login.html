@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Here</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Here</title>
+  <link rel="stylesheet" href="login.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <form method="post" action="login.php">
-        <label><b>Email: </b><br></label>
-        <input type="email" name="email" placeholder="Enter your email-id" required><br>
-        
-        <label><b>Password: </b><br></label>
-        <input type="password" name="password" id="password" placeholder="Enter your password" required><br>
-        
-        <input type="checkbox" id="togglePassword"> Show Password<br><br>
-        <input type="submit" value="Log In"><br><br>
+  <div class="container">
+    <div class="left">
+      <form method="post" action="login.php">
+        <h2>Login</h2>
+        <label for="email"><b>Email:</b></label>
+        <input type="email" name="email" id="email" placeholder="Enter your email-id" required />
 
-        <a href="forgot_password.php">Forgot Password?</a><br><br>
+        <label for="password"><b>Password:</b></label>
+        <input type="password" name="password" id="password" placeholder="Enter your password" required />
 
+        <div class="show-password">
+          <input type="checkbox" id="togglePassword" />
+          <label for="togglePassword">Show Password</label>
+        </div>
+
+        <input type="submit" value="Log In" />
+
+        <p><a href="forgot_password.php">Forgot Password?</a></p>
         <p>New User? <a href="register.html">Register here</a></p>
-    </form>
+      </form>
+    </div>
+    <div class="right">
+      <img src="login.png" alt="Login Illustration" />
+    </div>
+  </div>
 
-    <script>
-        document.getElementById("togglePassword").addEventListener("change", function () {
-            const passwordInput = document.getElementById("password");
-            passwordInput.type = this.checked ? "text" : "password";
-        });
-    </script>
+  <script>
+    document.getElementById("togglePassword").addEventListener("change", function () {
+      const passwordInput = document.getElementById("password");
+      passwordInput.type = this.checked ? "text" : "password";
+    });
+  </script>
 </body>
 </html>

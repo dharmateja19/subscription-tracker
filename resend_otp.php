@@ -13,9 +13,8 @@
 
             $subject = "Resent OTP Code";
             $message = "Hi $name,\n\nYour new OTP is: $otp\nIt expires in 10 minutes.";
-            $headers = "From: no-reply@yourdomain.com";
 
-            mail($email, $subject, $message, $headers);
+            mail($email, $subject, $message);
 
             echo "<script>alert('OTP resent successfully'); window.location.href='verify_otp.php?email=$email';</script>";
         } else {

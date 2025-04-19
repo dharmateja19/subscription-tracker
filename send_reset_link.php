@@ -4,7 +4,6 @@ date_default_timezone_set('Asia/Kolkata');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
-
     $check = "SELECT * FROM users WHERE email = '$email'";
     $res = mysqli_query($conn, $check);
 
@@ -18,10 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $link = "http://localhost/project/reset_password.php?email=$email&token=$token";
         mail($email, "Password Reset", "Click the link to reset your password: $link");
 
-        echo "Reset link sent successfully. verify your email"; 
-    } 
-    else {
-        echo "Email not found.";
+        header("Location: forgot_password.php?status=success");
+        exit();
+    } else {
+        header("Location: forgot_password.php?status=error");
+        exit();
     }
 }
 ?>

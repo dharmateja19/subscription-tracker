@@ -17,10 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $current_time = date('Y-m-d H:i:s');
         $token_expiry = $user['token_expiry'];
 
-        // Debug: Show current and expiry time
-        echo "Token Expiry in DB: " . $token_expiry . "<br>";
-        echo "Current Time: " . $current_time . "<br>";
-
         if ($token_expiry >= $current_time) {
             // Update the password and clear token
             $update = "UPDATE users 

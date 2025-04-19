@@ -13,12 +13,7 @@
                 <li><?= $subscription['subscription_name'] ?> (<?= $subscription['start_date'] ?> - <?= $subscription['end_date'] ?>)</li>
             <?php } ?>
         </ul>
-        <form action="add_subscription.php" method="post">
-            <input type="text" name="subscription_name" placeholder="Subscription Name" required>
-            <input type="date" name="start_date" placeholder="Start Date" required>
-            <input type="date" name="end_date" placeholder="End Date" required>
-            <button type="submit">Add Subscription</button>
-        </form>
+        <a href="add_subscription.html"><button name="add">Add</button></a>
     <?php
     } else {
         header('Location: login.php');
